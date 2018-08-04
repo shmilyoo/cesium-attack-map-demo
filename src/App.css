@@ -1,0 +1,104 @@
+body {
+  color: #f5f5f5;
+  background-color: "#180030";
+}
+#head {
+}
+#top-status {
+  border-bottom: #888 1px dashed;
+  margin-bottom: 10px;
+}
+.title {
+  height: 150px;
+  /*background: #f00;*/
+  font-size: 4rem;
+  color: white;
+  line-height: 150px;
+  text-align: center;
+  padding: 20px 0;
+}
+.status {
+  /*color: white;*/
+  text-align: center;
+  color: #f5f5f5;
+}
+.status span {
+  display: inline-block;
+  color: #f5f5f5;
+}
+#root {
+  height: 100%;
+}
+#App {
+  display: flex;
+  /*align-items: center;*/
+  flex-direction: column;
+  height: 100%;
+  /*border:1px solid black;*/
+}
+#main {
+  flex: 1;
+  /*height: 100%;*/
+}
+#foot {
+  height: 100px;
+  margin-top: 10px;
+  /* border-top: #888 1px solid; */
+  text-align: center;
+  align-self: center;
+  /*flex:1;*/
+}
+
+.perf-cpu {
+  /*width:50%;*/
+  height: 300px;
+  /*border:1px black solid;*/
+  flex: 0 0 50%;
+}
+.perf-mem {
+  /*width:50%;*/
+  height: 250px;
+  /*border:1px black solid;*/
+  flex: 0 0 50%;
+}
+.perf {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+@media (max-width: 768px) {
+  .map {
+    height: 300px;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .map {
+    height: 600px;
+    width: 100%;
+  }
+}
+.flow-chart {
+  height: 300px;
+  width: 100%;
+  /*border:1px black solid;*/
+}
+#datePickerArea {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#datePickerArea label {
+  font-size: 1.3em;
+}
+.btnSearch {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.ant-tabs-tab {
+  color: #f5f5f5;
+}
+.history-chart {
+  width: 100%;
+  height: 500px;
+}

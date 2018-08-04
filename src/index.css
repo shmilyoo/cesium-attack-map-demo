@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #333333;
+  font-size: 100px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.full {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#cesium-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
