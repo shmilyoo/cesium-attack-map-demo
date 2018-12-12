@@ -1,13 +1,10 @@
 import React from "react";
 import Cesium from "cesium/Cesium";
 import "cesium/Widgets/widgets.css";
-// require("cesium/Widgets/widgets.css");
-// import Cesium from "cesium/Cesium";
 import { coordinate, ships } from "./world-config";
 import satellite from "./satellite.czml";
 import rardar1 from "./radar1.glb";
 import rardar2 from "./radar2.glb";
-// import { start } from "repl";
 
 class World extends React.Component {
   constructor(props) {
@@ -128,42 +125,6 @@ class World extends React.Component {
    * 添加各类实体，模型等
    */
   addEntity() {
-    // this.center1 = this.viewer.entities.add({
-    //   id: "center1",
-    //   position: Cesium.Cartesian3.fromDegrees(...coordinate.center1),
-    //   label: {
-    //     text: "坐标1",
-    //     font: "20px Helvetica",
-    //     fillColor: Cesium.Color.SKYBLUE,
-    //     outlineColor: Cesium.Color.BLACK,
-    //     outlineWidth: 2,
-    //     style: Cesium.LabelStyle.FILL_AND_OUTLINE
-    //   }
-    // });
-    // this.center2 = this.viewer.entities.add({
-    //   id: "center2",
-    //   position: Cesium.Cartesian3.fromDegrees(...coordinate.center2),
-    //   label: {
-    //     text: "坐标2",
-    //     font: "20px Helvetica",
-    //     fillColor: Cesium.Color.SKYBLUE,
-    //     outlineColor: Cesium.Color.BLACK,
-    //     outlineWidth: 2,
-    //     style: Cesium.LabelStyle.FILL_AND_OUTLINE
-    //   }
-    // });
-    // this.home = this.viewer.entities.add({
-    //   id: "home",
-    //   position: Cesium.Cartesian3.fromDegrees(...coordinate.home),
-    //   label: {
-    //     text: "坐标3",
-    //     font: "24px Helvetica",
-    //     fillColor: Cesium.Color.GOLD,
-    //     outlineColor: Cesium.Color.BLACK,
-    //     outlineWidth: 2,
-    //     style: Cesium.LabelStyle.FILL_AND_OUTLINE
-    //   }
-    // });
     this.createModel(
       "center1",
       rardar1,

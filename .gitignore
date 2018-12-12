@@ -58,8 +58,6 @@ typings/
 .env
 
 build/
-config/
-scripts/
 package-lock.json
 .idea/
 resource/
