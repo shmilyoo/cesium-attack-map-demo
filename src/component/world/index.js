@@ -1,10 +1,10 @@
-import React from "react";
-import Cesium from "cesium/Cesium";
-import "cesium/Widgets/widgets.css";
-import { coordinate, ships } from "./world-config";
-import satellite from "./satellite.czml";
-import rardar1 from "./radar1.glb";
-import rardar2 from "./radar2.glb";
+import React from 'react';
+import Cesium from 'cesium/Cesium';
+import 'cesium/Widgets/widgets.css';
+import { coordinate, ships } from './world-config';
+import satellite from './satellite.czml';
+import rardar1 from './radar1.glb';
+import rardar2 from './radar2.glb';
 
 class World extends React.Component {
   constructor(props) {
@@ -103,7 +103,9 @@ class World extends React.Component {
   }
 
   initView() {
-    this.viewer = new Cesium.Viewer("cesium-container", {
+    Cesium.Ion.defaultAccessToken =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkODdlMDhjYS0wODYwLTQyNmMtYTQ4Zi1iM2EzYWRhYjg1OGEiLCJpZCI6MjM3NiwiaWF0IjoxNTMyOTYzMTEwfQ.UJFXspQAS-NKDgAn6tedW4GXA4hiJk8D2zX4QKVY3uQ';
+    this.viewer = new Cesium.Viewer('cesium-container', {
       animation: false,
       baseLayerPicker: false,
       geocoder: false,
@@ -115,7 +117,7 @@ class World extends React.Component {
     // 启用光照白天黑夜效果
     this.viewer.scene.globe.enableLighting = true;
     // 隐藏credit图标和文字
-    this.viewer._cesiumWidget._creditContainer.style.display = "none";
+    this.viewer._cesiumWidget._creditContainer.style.display = 'none';
     // this.viewer.extend(Cesium.viewerCesiumInspectorMixin);
     this.addEntity();
     this.setCamera();
@@ -126,7 +128,7 @@ class World extends React.Component {
    */
   addEntity() {
     this.createModel(
-      "center1",
+      'center1',
       rardar1,
       coordinate.center1,
       0,
@@ -135,7 +137,7 @@ class World extends React.Component {
       5000
     );
     this.createModel(
-      "center2",
+      'center2',
       rardar2,
       coordinate.center2,
       0,
@@ -144,7 +146,7 @@ class World extends React.Component {
       5000
     );
     this.createModel(
-      "home",
+      'home',
       rardar1,
       coordinate.home,
       60,
@@ -319,7 +321,7 @@ class World extends React.Component {
     var colors = [Cesium.Color.RED, Cesium.Color.YELLOW, Cesium.Color.AQUA];
     var color = colors[Math.floor(Math.random() * colors.length)];
     var id =
-      startLat + startLon + "-" + stopLat + stopLon + startTime.toString();
+      startLat + startLon + '-' + stopLat + stopLon + startTime.toString();
     var arcEntity = this.viewer.entities.add({
       id: id,
       position: property,
@@ -357,7 +359,7 @@ class World extends React.Component {
       <div
         id="cesium-container"
         style={{
-          position: "absolute"
+          position: 'absolute'
         }}
       />
     );
