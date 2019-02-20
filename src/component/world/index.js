@@ -120,6 +120,7 @@ class World extends React.Component {
     this.viewer._cesiumWidget._creditContainer.style.display = 'none';
     // this.viewer.extend(Cesium.viewerCesiumInspectorMixin);
     this.addEntity();
+    this.addAnimate();
     this.setCamera();
   }
 
@@ -179,6 +180,9 @@ class World extends React.Component {
     this.addArc(coordinate.ship1, coordinate.center1);
     this.addArc(coordinate.ship4, coordinate.center1);
     this.addArc(coordinate.ship4, coordinate.center2);
+  }
+
+  addAnimate() {
     setInterval(() => {
       this.addMove(coordinate.ship1, coordinate.center1);
     }, 1300);
@@ -209,17 +213,18 @@ class World extends React.Component {
     setInterval(() => {
       this.addMove(coordinate.ship4, coordinate.center2);
     }, 700);
-    setInterval(() => {
-      console.log(this.garbage.length);
-      let tmp = this.garbage;
-      this.garbage = [];
-      tmp.forEach(id => {
-        this.viewer.entities.removeById(id);
-      });
-    }, 1000);
+    // setInterval(() => {
+    //   console.log(this.garbage.length);
+    //   let tmp = this.garbage;
+    //   this.garbage = [];
+    //   tmp.forEach(id => {
+    //     this.viewer.entities.removeById(id);
+    //   });
+    // }, 2000);
     // czml的时间和本项目对不上
     // this.addSatellite();
   }
+
   addArc(start, stop) {
     let startLon, startLat;
     [startLon, startLat] = start;
@@ -307,17 +312,17 @@ class World extends React.Component {
       interpolationDegree: 2,
       interpolationAlgorithm: Cesium.LagrangePolynomialApproximation
     });
-    var positions = [];
-    for (var i = 0; i <= 10; i++) {
-      var position = property.getValue(
-        Cesium.JulianDate.addSeconds(
-          startTime,
-          (duration * i) / 10,
-          new Cesium.JulianDate()
-        )
-      );
-      positions.push(position);
-    }
+    // var positions = [];
+    // for (var i = 0; i <= 10; i++) {
+    //   var position = property.getValue(
+    //     Cesium.JulianDate.addSeconds(
+    //       startTime,
+    //       (duration * i) / 10,
+    //       new Cesium.JulianDate()
+    //     )
+    //   );
+    //   positions.push(position);
+    // }
     var colors = [Cesium.Color.RED, Cesium.Color.YELLOW, Cesium.Color.AQUA];
     var color = colors[Math.floor(Math.random() * colors.length)];
     var id =
@@ -344,9 +349,12 @@ class World extends React.Component {
         })
       }
     });
-    setTimeout(() => {
-      this.garbage.push(id);
-    }, this.duration * 1000 + 3000);
+    // this.garbage.push(id);
+    // 清理已经不显示的轨迹
+    // setInterval(() => {
+    //   // console.log(this.garbage.length);
+    //   this.viewer.entities.removeById(id);
+    // }, this.duration * 1000 + 1500);
     return id;
   }
   addSatellite() {
